@@ -21,6 +21,6 @@
 
     public static function sandbox(){
       // Testaa koodiasi täällä
-      echo 'Hello World!';
+      View::make('helloworld.html');
     }
   }

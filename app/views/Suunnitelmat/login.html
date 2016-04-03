@@ -1,0 +1,85 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8" />
+    </head>
+    
+    <style>
+        body {
+   	    background-color:rgb(165, 44, 66);
+        }
+        
+        h1{
+            color: rgb(102, 0, 51);
+	}
+
+	.button {
+    background-color: rgb(102, 0, 51);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	}
+	
+
+	h2{
+    border: 1px solid red;
+            margin-top: 1px;
+	    background-color:rgb(0, 0, 0);
+            color: rgb(102, 0, 51);
+    font-size: 56px;
+        }
+        
+        form{
+	    position: absolute;
+            right: 600px;
+            text-align: center;
+
+	    font-size: 20px;
+        }
+
+	a{
+            text-align: center;
+	    color:blue;
+	    font-size: 25px;
+	    font-weight: bold;
+	}
+
+	p1{
+	    float: left;
+	    border: 10px solid rgb(102, 0, 51);
+	    font-size: 23px;
+	    font-weight: bold;
+	}
+
+        
+    </style>
+
+    <body>
+	<h2>GYM<br>PARE</h2>
+
+	<p1>GYMPARE IS A SOCIAL</br> FITNESS NETWORK WHERE</br> YOU CAN SET GOALS,</br>
+            CHALLENGE YOURSELF AND SEE</br> THE PROGRESS YOU MAKE</br>AS YOU KEEP TRAINING.</br>
+	    CHALLENGE YOUR FRIENDS</br> AND WORK TOGETHER TOWARDS </br>
+            A COMMON GOAL! WHAT ARE</br> YOU STILL WAITING FOR?</p1></br>
+
+        <form method="POST" action="/login"> <!--method="POST" action="/opiskelijat"-->
+            <h1>Login</h1>
+            Username:<br/>
+            <input type="text" name="username"/><br/>
+            Password:<br/>
+            <input type="password" name="password"/><br/><br/>
+	    <a class="button" href="main_view">Gympare</a>
+            <!input class="button" type="submit" value="Gympare"/></br></br></br></br>
+	    <a href="signup">Not a member yet?</a>
+        </form></br></br></br>
+
+    </body>
+</html>
