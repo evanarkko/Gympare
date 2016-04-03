@@ -4,8 +4,8 @@ CREATE TABLE Trainer(
 	Name VARCHAR(100) NOT NULL,
 	Trainername VARCHAR(50) NOT NULL,
 	Password VARCHAR(50) NOT NULL,
-	Weight INTEGER,
-	Height INTEGER,
+	Weight_in_kg INTEGER,
+	Height_in_cm INTEGER,
 	Gender VARCHAR(10)
 );
 
