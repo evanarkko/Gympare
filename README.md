@@ -7,4 +7,4 @@ Yleisiä linkkejä:
 
 ## Työn aihe
 
-Keittiötarpeiden seurantasovellus. Ruokien päivämäärien seuraaminen jääkaapissa, pakastimessa ja kuivakaapissa.
+Gympare sovellus on tarkoitettu henkilökohtaisen kuntoharjoittelun seuraamiseen.
