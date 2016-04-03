@@ -2,8 +2,8 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](https://www.cs.helsinki.fi)
-* [Linkki dokumentaatiooni](https://github.com/evanarkko/Jaakaappi/blob/master/doc/dokumentaatio.pdf.save)
+* [Linkki sovellukseeni](http://eamiller.users.cs.helsinki.fi/gympare/)
+* [Linkki dokumentaatiooni](https://github.com/evanarkko/Gympare/blob/master/doc/Dokumentaatio.pdf)
 
 ## Työn aihe
 
