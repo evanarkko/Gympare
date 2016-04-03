@@ -46,7 +46,7 @@ CREATE TABLE WeightExercise(
 	Weight INTEGER NOT NULL
 );
 
-CREATE TABLE Set(
+CREATE TABLE ExerciseSet(
 	ExerciseId INTEGER REFERENCES WeightExercise(Id),
 	Reps INTEGER NOT NULL
 );
