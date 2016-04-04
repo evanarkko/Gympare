@@ -13,16 +13,17 @@ CREATE TABLE Goal(
 	Id SERIAL PRIMARY KEY,
 	TrainerId INTEGER REFERENCES Trainer(Id),
 	StartDate TIMESTAMP NOT NULL,
-	EndDate TIMESTAMP NOT NULL,
+	EndDate TIMESTAMP,
 	Exercise_name VARCHAR(100) NOT NULL,
-	Current_quantity INTEGER NOT NULL
+	Current_quantity INTEGER NOT NULL,
+	End_quantity INTERGER NOT NULL
 );
 
 CREATE TABLE Friendship(
 	Trainer1_Id INTEGER REFERENCES Trainer(Id), 
 	Trainer2_Id INTEGER REFERENCES Trainer(Id), 
 	Status INTEGER NOT NULL,
-	Action_trainerId INTEGER NOT NULL
+	  INTEGER NOT NULL
 );
 
 CREATE TABLE Workout(
