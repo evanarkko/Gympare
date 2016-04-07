@@ -6,33 +6,43 @@
     </head>
     
     <style>
-	.button {
-    background-color: rgb(102, 0, 51);
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-	}
-        body {
-   	    background-color:rgb(165, 44, 66);
-        }
+
+    #friendlist{
+
+
+		position: relative;
+		margin-left: 75%;
+		bottom: 25%;
+    }
+
+    ul{
+    	height:200px;
+    	width:18%;
+
+    	font-size: 25px;
+    	background-color: rgb(102, 0, 51);
+
+    	overflow:hidden;
+    	overflow-y:scroll;
+    }
+
+	
+
+    body {
+   	    background-color: grey;
+    }
         
 	h1{
-    	    border: 3px solid white;
-            margin-top: 1px;
-	    background-color:black;
-            color: rgb(102, 0, 51);
-    	    font-size: 56px;
-        }
+    	border: 3px solid white;
+        margin-top: 1px;
+	    background-color: rgb(102, 0, 51);
+        color: black;
+    	font-size: 56px;
+    }
 
     p1{
             color: black;
-    	    font-size: 20px;
+    	    font-size: 25px;
     	    font-weight: bold;
         }
 
@@ -44,16 +54,16 @@
 	}
 
 	.stats{
+	    border: 3px solid rgb(102, 0, 51);
 	    font-weight: bold;
-	    font-size: 23px;
-	    height: 200px ;
-	    width: 20%;
+	    font-size: 25px;
 	}
 
 	a{	
-	    position: absolute;
+		position: relative;
+		top: 20px;
 	    border: 3px solid white;
-	border-style: outset;
+		border-style: outset;
 	    float: center;
 	    background-color: white;
 	    font-size: 30px;
@@ -63,7 +73,7 @@
 	}
 
 
-        
+       
     </style>
 
     <body>
@@ -72,16 +82,23 @@
 		<p1>Hello USER!</p1>
 	</div>
 
+	<table class="stats">
+	  <tr>
+	    <td class="stats">TOTAL AMOUNT OF PUSHUPS xxx </td>
+	    <td class="stats">TOTAL AMOUNT OF PULLUPS: xxx </td>
+	    <td class="stats">TOTAL DISTANCE RUN: xxx </td>
+	    <td class="stats"> TOTAL DISTANCE RUN: xxx </td>
+	    <td class="stats">TOTAL CALORIES BURNED: xxx </td>
+	  </tr>
+	</table>
+
 	<div>
 	<a href="add_workout">ADD WORKOUT</a>
 	</div>
+
 	<br>
 	<div>
 	<table class="info">
-	  <tr>
-	    <td class="info">Username</td>
-	    <td class="info">"Username"</td>
-	  </tr>
 	  <tr>
 	    <td class="info">Weight</td>
 	    <td class="info">xx,xx kg</td>
@@ -97,25 +114,25 @@
 	</table></br>
 	</div>
 
-	<table class="stats">
-	  <tr>
-	    <td>TOTAL AMOUNT OF PULLUPS: </td>
-	    <td>xxx</td>
-	  </tr>
-	  <tr>
-	    <td>TOTAL AMOUNT OF PUSHUPS: </td>
-	    <td>xxx</td>
-	  </tr>
-	  <tr>
-	    <td>TOTAL DISTANCE RUN: </td>
-	    <td>xxx km</td>
-	  </tr>
-	  <tr>
-	    <td>TOTAL CALORIES BURNED: </td>
-	    <td>xxx kcal</td>
-	  </tr>
-	</table>
-        
+	<h2 id="friendlist">Friends: </h2>
+    <ul id="friendlist">
+    	<li>friend 1</li>
+    	<li>friend 2</li>
+    	<li>friend 3</li>
+    	<li>friend 4</li>
+    	<li>friend 5</li>
+    	<li>friend 6</li>
+    	<li>friend 7</li>
+    	<li>friend 8</li>
+    	<li>friend 9</li>
+    	<li>friend 10</li>
+    	<li>friend 12</li>
+    	<li>friend 13</li>
+    	<li>friend 14</li>
+    	<li>friend 15</li>
+    	<li>friend 16</li>
+    	<li>friend 17</li>
+    </ul>
 
      </body>
 </html>

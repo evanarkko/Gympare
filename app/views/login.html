@@ -7,57 +7,93 @@
     </head>
     
     <style>
+
         body {
-   	    background-color:rgb(165, 44, 66);
+   	    background-color:rgb(0, 100, 200);
         }
         
         h1{
-            color: rgb(102, 0, 51);
+            color: black;
+            background-color: rgb(102, 0, 51);
+            border: 7px solid black; 
 	}
 
 	.button {
-    background-color: rgb(102, 0, 51);
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+        background-color: rgb(102, 0, 51);
+        border: 7px solid rgb(102, 0, 51);
+        background-color: black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
 	}
 	
 
 	h2{
-    border: 1px solid red;
-            margin-top: 1px;
-	    background-color:rgb(0, 0, 0);
-            color: rgb(102, 0, 51);
-    font-size: 56px;
-        }
-        
-        form{
-	    position: absolute;
-            right: 600px;
-            text-align: center;
+        border: 10px solid black;
+        margin-top: 1px;
+        background-color:rgb(102, 0, 51);
+        color: rgb(0, 0, 0);
+        font-size: 56px;
+    }
 
-	    font-size: 20px;
+    h3{
+        
+        text-align: center;
+        border: 8px solid black;
+        margin-top: 1px;
+        background-color:rgb(102, 0, 51);
+        color: rgb(0, 0, 0);
+        font-size: 36px;
+    }
+        
+        #login{
+	       position: relative;
+           width: 200px;
+            left: 40%;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        #signup{
+           position: relative;
+           bottom: 370px;
+           left: 70%;
+           width: 200px;
+            text-align: center;
+            font-size: 20px;
         }
 
 	a{
-            text-align: center;
-	    color:blue;
+        text-align: center;
+	    color: rgb(102, 0, 51);
 	    font-size: 25px;
 	    font-weight: bold;
+        background-color: black;
+        border: 6px solid rgb(102, 0, 51);
 	}
 
 	p1{
-	    float: left;
-	    border: 10px solid rgb(102, 0, 51);
-	    font-size: 23px;
-	    font-weight: bold;
-	}
+        float: left;
+        position: fixed;
+        border: 10px solid rgb(0,0,0);
+        background-color: rgb(102, 0, 51);
+        font-size: 23px;
+        font-weight: bold;
+    }
+    p2{
+        float: left;
+        border: 10px solid rgb(102, 0, 51);
+        background-color: rgb(102, 0, 51);
+        font-size: 23px;
+        font-weight: bold;
+    }
+
+    
+
 
         
     </style>
@@ -68,18 +104,44 @@
 	<p1>GYMPARE IS A SOCIAL</br> FITNESS NETWORK WHERE</br> YOU CAN SET GOALS,</br>
             CHALLENGE YOURSELF AND SEE</br> THE PROGRESS YOU MAKE</br>AS YOU KEEP TRAINING.</br>
 	    CHALLENGE YOUR FRIENDS</br> AND WORK TOGETHER TOWARDS </br>
-            A COMMON GOAL! WHAT ARE</br> YOU STILL WAITING FOR?</p1></br>
+            A COMMON GOAL! WHAT ARE</br> YOU STILL WAITING FOR??</p1></br> 
 
-        <form method="POST" action="/login"> <!--method="POST" action="/opiskelijat"-->
+        <form id="login" method="POST" action="/login"> <!--method="POST" action="/opiskelijat"-->
             <h1>Login</h1>
             Username:<br/>
             <input type="text" name="username"/><br/>
             Password:<br/>
             <input type="password" name="password"/><br/><br/>
-	    <a class="button" href="main_view">Gympare</a>
-            <!input class="button" type="submit" value="Gympare"/></br></br></br></br>
-	    <a href="signup">Not a member yet?</a>
-        </form></br></br></br>
+	    <a class="button" href="main_view">Get Fit</a><!--TÄNNE SEMMONEN VAIHTELEVA NIMI, GYMPARE, GET FIT, MAKE GAINS, LETS GO!, etc-->
+        </br></br></br></br>
+        </form>
 
+
+        <form id="signup" method="POST" action="/signup"> <!--method="POST" action="/opiskelijat"-->
+        <h3>Not a Member Yet?</h3>
+        Full name:<br/>
+        <input type="text" name="name"/><br/><br/>
+        Weight:<br/>
+        <input type="text" name="weight"/><br/><br/>
+        Height:<br/>
+        <input type="text" name="height"/><br/><br/>
+
+        Gender:<br/>    
+        <input type="radio" name="gender" value="male" checked> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Other<br><br>
+
+        Username:<br/>
+        <input type="text" name="username"/><br/><br/>
+            
+        Password:<br/>
+        <input type="password" name="password"/><br/>
+        Password again:<br/>
+
+        <input type="password" name="password again"/><br/><br/>
+
+            
+        <a class="button" href="main_view">Join In</a>
+        </form>
     </body>
 </html>
