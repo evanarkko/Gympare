@@ -7,6 +7,10 @@ class Trainer extends BaseModel{
 		parent::__construct($attributes);
 	}
 
+
+	
+
+
 	public static function all(){
 		$query = DB::connection()->prepare('SELECT * FROM Trainer');
 		$query->execute();
@@ -14,20 +18,43 @@ class Trainer extends BaseModel{
 		$rows = $query->fetchAll();
 		$trainers = array();
 
+		
 		foreach ($rows as $row) {
 			$trainers[] = new Trainer(array(
-				'id' => row['Id'],
-				'name' => row['Name'],
-				'trainer_name' => row['Trainername'],
-				'password' => row['Password'],
-				'weight' => row['Weight_in_kg'],
-				'height' => row['Height_in_cm'],
-				'gender' => row['Gender'],
+				'id' => $row["id"],
+				'name' => $row['name'],
+				'trainer_name' => $row['trainername'],
+				'password' => $row['password'],
+				'weight' => $row['weight_in_kg'],
+				'height' => $row['height_in_cm'],
+				'gender' => $row['gender']	
 			));
 		}
 
+
+
 		return $trainers;	
+	}
+
+
+	public static function find($id){
+		$query = DB::connection()->prepare('SELECT * FROM Trainer WHERE id = :id LIMIT 1');
+		$query->execute(array('id' => $id));
+		$row = $query->fetch();
+
+		if($row){
+			$trainer = new Trainer(array(
+				'id' => $row["id"],
+				'name' => $row['name'],
+				'trainer_name' => $row['trainername'],
+				'password' => $row['password'],
+				'weight' => $row['weight_in_kg'],
+				'height' => $row['height_in_cm'],
+				'gender' => $row['gender']
+			));
+			return $trainer;
+		}
+		return null;
 	}
 }
 
-?>

@@ -1,5 +1,6 @@
 <?php
 
+
 class Workout extends BaseModel{
 	public $id, $trainer_id, $workout_time, $description;
 
@@ -26,8 +27,8 @@ class Workout extends BaseModel{
 	}
 
 	public static function find($id){
-		$query = DB::connection()->prepare('SELECT * FROM Workout WHERE id = :id LIMIT 1');
-		$query->execute(array('id' => $id));
+		$query = DB::connection()->prepare('SELECT * FROM Workout WHERE Id = :id LIMIT 1');
+		$query->execute(array('Id' => $id));
 		$row = $query->fetch();
 
 		if($row){

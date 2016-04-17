@@ -1,5 +1,6 @@
 <?php
-
+  
+require 'app/models/trainer.php';
   class HelloWorldController extends BaseController{
     
     public static function login(){
@@ -19,9 +20,18 @@
       View::make('add_workout.html');
     }
 
-    public static function sandbox(){
-      // Testaa koodiasi täällä
-      View::make('helloworld.html');
+    public static function workoutList(){
+      View::make('workout_list.html');
     }
 
+    public static function sandbox(){
+      $trainers = Trainer::all();
+      $evan = Trainer::find(1);
+
+      Kint::dump($evan);
+    }
+
+    public static function exerciseList(){
+      View::make('exercise_list.html');
+    }
   }

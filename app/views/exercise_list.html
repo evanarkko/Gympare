@@ -1,0 +1,74 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>exercises</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <style>
+
+      body {
+        background-color:grey;
+        }
+
+        h1{
+        border: 10px solid black;
+        margin-top: 1px;
+        background-color:rgb(102, 0, 51);
+        color: rgb(0, 0, 0);
+        font-size: 46px;
+    }
+
+    .workouts {
+    border-collapse: collapse;
+    width: 90%;
+}
+
+    .workouts, td, th{
+      border: 3px solid rgb(102, 0, 51);
+      font-weight: bold;
+      font-size: 25px;
+    }
+
+    </style>
+
+    <body>
+
+    <h1>GYM<br>PARE</h2>
+    <h2>[WORKOUT NAME + DATE]</h2>
+    
+   
+  <div>
+  <a href="workout_list">BACK</a>
+  </div>
+
+      
+      <table class="workouts">
+    <thead>
+      <tr>
+        <th>Exercise</th>
+        <th>Sets/Time </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Example exercise</td>
+        <td>10, 10, 10, 10</td>
+      </tr>
+      <tr>
+        <td>Nimi</td>
+        <td>Aika</td>
+      </tr>
+      <tr>
+        <td>Nimi</td>
+        <td>Aika</td>
+      </tr>
+      <tr>
+        <td>Nimi</td>
+        <td>Aika</td>
+      </tr>
+    </tbody>
+  </table>  
+
+    </body>

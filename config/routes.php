@@ -19,3 +19,11 @@
   $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
   });
+
+  $routes->get('/workout_list', function(){
+    HelloWorldController::workoutList();
+  });
+
+  $routes->get('/exercise_list', function(){
+    HelloWorldController::exerciseList();
+  });
