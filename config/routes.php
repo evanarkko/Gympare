@@ -1,4 +1,5 @@
 <?php
+require 'app/controllers/workouts_controller.php';
 
   $routes->get('/', function() {
     HelloWorldController::login();
@@ -12,18 +13,18 @@
     HelloWorldController::mainView();
   });
 
-  $routes->get('/add_workout', function() {
-    HelloWorldController::addWorkout();
-  });
 
-  $routes->get('/hiekkalaatikko', function() {
+  $routes->get('/sandbox', function() {
     HelloWorldController::sandbox();
   });
 
   $routes->get('/workout_list', function(){
-    HelloWorldController::workoutList();
+    WorkoutController::index();
+  });
+  $routes->post('/workout_list', function(){
+    WorkoutController::addWorkout();
   });
 
   $routes->get('/exercise_list', function(){
-    HelloWorldController::exerciseList();
+    WorkoutController::exerciseList();
   });

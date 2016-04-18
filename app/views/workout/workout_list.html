@@ -45,32 +45,19 @@
       font-size: 25px;
     }
 
-    thead{
-      color: white;
-      background-color: black;
-    }
-    tbody{
-      background-color: white;
-    }
-
     form{
       background-color: rgb(102, 0, 51);
     }
 
 
 
-
-
     </style>
 
     <body>  
-    <h1>GYM<br>PARE</h1>
-
     <div>
-      <a href="{{base_path}}/main_view">BACK</a>
+      <a href="main_view">BACK</a>
     </div>
     
-
 
     <h2>My Workouts:</h2>
       <table class="workouts">
@@ -84,8 +71,8 @@
     <tbody>
       {% for workout in workouts %}
       <tr>
-        <td><a href="{{base_path}}/exercise_list">{{workout.name}}</a></td>
-        <td>{{workout.workouttime}}</td> <!TÄMÄ EI NÄY????>
+        <td><a href="exercise_list">{{workout.name}}</a></td>
+        <td>{{workout.workouttime}}</td>
       </tr>
       {% endfor %}
     </tbody>
@@ -93,12 +80,12 @@
 
   <h2>Add a Workout:</h2>
 
-<form>
+<form method="post" action="{{base_path}}/workout_list">
   <p>Name:</p>
-    <input type="text" name="workoutName"/>
+    <input type="text" name="name"/>
     <p>Description:</p>
-    <textarea rows="4" cols="50"></textarea><br>
-    <button>ADD WORKOUT</button>
+    <textarea rows="4" cols="50" name="description"></textarea><br>
+    <button type="submit">ADD WORKOUT</button>
 </form>
     
 

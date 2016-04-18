@@ -9,8 +9,8 @@ INSERT INTO Friendship (Trainer1_Id, Trainer2_Id, Status, Action_trainerId) VALU
 INSERT INTO Friendship (Trainer1_Id, Trainer2_Id, Status, Action_trainerId) VALUES (1, 3, 0, 1);
 
 -- Workouts
-INSERT INTO Workout (TrainerId, WorkoutTime) VALUES (2, '2015-10-21');
-INSERT INTO Workout (TrainerId, WorkoutTime) VALUES (1, NOW());
+INSERT INTO Workout (Name, TrainerId, WorkoutTime) VALUES ('Chest and arms',2, '2015-10-21');
+INSERT INTO Workout (Name, TrainerId, WorkoutTime) VALUES ('back and abs',1, NOW());
 
 -- Excercises
 INSERT INTO WeightExercise (Name, Weight) VALUES ('bench press', 100);

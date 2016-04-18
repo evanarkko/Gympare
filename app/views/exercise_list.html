@@ -9,7 +9,7 @@
     <style>
 
       body {
-        background-color:grey;
+          background-color:grey;
         }
 
         h1{
@@ -31,20 +31,33 @@
       font-size: 25px;
     }
 
+    .addEx{
+    background-color: rgb(102, 0, 51);
+      float: left;
+      width:50%
+  }
+  .addCar{
+    background-color: rgb(102, 0, 51);
+      float: right;
+      width: 50%;
+  }
+
+    div{
+      font-weight:bold;
+    }
+
     </style>
 
     <body>
 
     <h1>GYM<br>PARE</h2>
-    <h2>[WORKOUT NAME + DATE]</h2>
     
-   
-  <div>
-  <a href="workout_list">BACK</a>
-  </div>
-
+    <div>
+      <a href="workout_list">BACK</a>
+    </div>
       
-      <table class="workouts">
+    <h2>[WORKOUT NAME + DATE]</h2>
+    <table class="workouts">
     <thead>
       <tr>
         <th>Exercise</th>
@@ -70,5 +83,40 @@
       </tr>
     </tbody>
   </table>  
+
+  <h2>Add Exercises to this Workout:</h2>
+
+<div class="addEx">
+    <form action="confirm.php" method="post">
+      <div>
+        <h3>Add weight training exercise</h3><br/>
+        Name:<br/>
+          <input type="text" name="name"/><br/><br/>
+        Weight (kg):<br/>
+        <input type="text" name="weight"/><br/><br/>
+      Sets (in the form of reps per set. Eg: 7 5 6 5):<br/>
+        <input type="text" name="sets"/><br/><br/>
+      <button type="exercise">ADD EXERCISE</button>
+      </div>
+    </form>
+</div>
+
+<div class="addCar">
+    <form action="cancel.php" method="post">
+      <div>
+        <h3>Add cardio/static exercise</h3><br/>
+        Name:<br/>
+          <input type="text" name="name"/><br/><br/>
+        Duration (min):<br/>
+        <input type="text" name="duration"/><br/><br/>
+        Distance (optional):<br/>
+        <input type="text" name="distance"/><br/><br/>
+        <button type="cardio">ADD CARDIO <ELEMENT></ELEMENT>XERCISE</button>
+      </div>
+    </form>
+</div>
+
+  <br/>
+  <p>Total exercises in this workout: x</p>
 
     </body>

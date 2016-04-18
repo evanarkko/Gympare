@@ -28,6 +28,7 @@ CREATE TABLE Friendship(
 
 CREATE TABLE Workout(
 	Id SERIAL PRIMARY KEY,
+	Name VARCHAR(255) NOT NULL,
 	TrainerId INTEGER REFERENCES Trainer(Id),
 	WorkoutTime DATE NOT NULL,
 	Description Text

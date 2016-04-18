@@ -2,7 +2,7 @@
 
 
 class Workout extends BaseModel{
-	public $id, $trainer_id, $workout_time, $description;
+	public $id, $name, $trainer_id, $workout_time, $description;
 
 	public function __construct($attributes){
 		parent::__construct($attributes);
@@ -17,32 +17,38 @@ class Workout extends BaseModel{
 
 		foreach($rows as $row){
 			$workouts[] = new Workout(array(
-				'id' => row['Id'],
-				'trainer_id' => row['TrainerId'],
-				'workout_time' => row['WorkoutTime'],
-				'description' => row['Description']
+				'id' => $row['id'],
+				'name' => $row['name'],
+				'trainer_id' => $row['trainerid'],
+				'workout_time' => $row['workouttime'],
+				'description' => $row['description']
 			));
 		}
 		return $workouts;
 	}
 
 	public static function find($id){
-		$query = DB::connection()->prepare('SELECT * FROM Workout WHERE Id = :id LIMIT 1');
-		$query->execute(array('Id' => $id));
+		$query = DB::connection()->prepare('SELECT * FROM Workout WHERE id = :id LIMIT 1');
+		$query->execute(array('id' => $id));
 		$row = $query->fetch();
 
 		if($row){
 			$workout = new Workout(array(
-				'id' => row['Id'],
-				'trainer_id' => row['TrainerId'],
-				'workout_time' => row['WorkoutTime'],
-				'description' => row['Description']
+				'id' => $row['id'],
+				'name' => $row['name'],
+				'trainer_id' => $row['trainerid'],
+				'workout_time' => $row['workouttime'],
+				'description' => $row['description']
 				));
-			return workout;
+			return $workout;
 		}
 		return null;
 	}
+
+	public static function save(){
+		$query = DB::connection()->prepare('INSERT INTO Workout (Name, TrainerId, WorkoutTime, Description) VALUES (:name, 1, NOW(), :description) RETURNING id');
+		$query->execute(array('name' => $this->name, 'description' => $this->description));
+		$row = $query->fetch();
+		$this->id = $row['id'];
+	}
 }
-
-
-?>

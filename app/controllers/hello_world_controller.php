@@ -16,19 +16,14 @@ require 'app/models/trainer.php';
       View::make('main_view.html');
     }
 
-    public static function addWorkout(){
-      View::make('add_workout.html');
-    }
-
     public static function workoutList(){
       View::make('workout_list.html');
     }
 
     public static function sandbox(){
-      $trainers = Trainer::all();
-      $evan = Trainer::find(1);
+      $workouts = Workout::find(1);
 
-      Kint::dump($evan);
+      Kint::dump($workouts);
     }
 
     public static function exerciseList(){

@@ -67,7 +67,7 @@
             font-size: 20px;
         }
 
-	a{
+	a, button{
         text-align: center;
 	    color: rgb(102, 0, 51);
 	    font-size: 25px;
@@ -106,18 +106,18 @@
 	    CHALLENGE YOUR FRIENDS</br> AND WORK TOGETHER TOWARDS </br>
             A COMMON GOAL! WHAT ARE</br> YOU STILL WAITING FOR??</p1></br> 
 
-        <form id="login" method="POST" action="/login"> <!--method="POST" action="/opiskelijat"-->
+        <form id="login" method="post" action="{{base_path}}/login"> <!--method="POST" action="/opiskelijat"-->
             <h1>Login</h1>
             Username:<br/>
             <input type="text" name="username"/><br/>
             Password:<br/>
             <input type="password" name="password"/><br/><br/>
-	    <a class="button" href="main_view">Get Fit</a><!--TÄNNE SEMMONEN VAIHTELEVA NIMI, GYMPARE, GET FIT, MAKE GAINS, LETS GO!, etc-->
+	    <a href="main_view">Get Fit</a><!--TÄNNE SEMMONEN VAIHTELEVA NIMI, GYMPARE, GET FIT, MAKE GAINS, LETS GO!, etc-->
         </br></br></br></br>
         </form>
 
 
-        <form id="signup" method="POST" action="/signup"> <!--method="POST" action="/opiskelijat"-->
+        <form id="signup" method="POST" action="{{base_path}}/login"> <!--method="POST" action="/opiskelijat"-->
         <h3>Not a Member Yet?</h3>
         Full name:<br/>
         <input type="text" name="name"/><br/><br/>
