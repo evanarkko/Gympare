@@ -1,9 +1,15 @@
 <?php
 require 'app/controllers/workouts_controller.php';
+require 'app/controllers/trainers_controller.php';
 
   $routes->get('/', function() {
-    HelloWorldController::login();
+    TrainerController::login();
   });
+
+  $routes->post('/login', function(){
+    TrainerController::handleLogin();
+  });
+
 
   $routes->get('/signup', function() {
     HelloWorldController::signup();
@@ -11,6 +17,7 @@ require 'app/controllers/workouts_controller.php';
 
   $routes->get('/main_view', function() {
     HelloWorldController::mainView();
+
   });
 
 
@@ -20,8 +27,10 @@ require 'app/controllers/workouts_controller.php';
 
   $routes->get('/workout_list', function(){
     WorkoutController::index();
+
   });
   $routes->post('/workout_list', function(){
+    // die('fak');
     WorkoutController::addWorkout();
   });
 

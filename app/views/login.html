@@ -112,12 +112,12 @@
             <input type="text" name="username"/><br/>
             Password:<br/>
             <input type="password" name="password"/><br/><br/>
-	    <a href="main_view">Get Fit</a><!--TÄNNE SEMMONEN VAIHTELEVA NIMI, GYMPARE, GET FIT, MAKE GAINS, LETS GO!, etc-->
+	    <button type="submit">Get Fit</button><!--TÄNNE SEMMONEN VAIHTELEVA NIMI, GYMPARE, GET FIT, MAKE GAINS, LETS GO!, etc-->
         </br></br></br></br>
         </form>
 
 
-        <form id="signup" method="POST" action="{{base_path}}/login"> <!--method="POST" action="/opiskelijat"-->
+        <form id="signup" method="post" action="{{base_path}}/signup"> <!--method="POST" action="/opiskelijat"-->
         <h3>Not a Member Yet?</h3>
         Full name:<br/>
         <input type="text" name="name"/><br/><br/>

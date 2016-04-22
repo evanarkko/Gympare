@@ -56,5 +56,9 @@ class Trainer extends BaseModel{
 		}
 		return null;
 	}
+
+	public static function authenticate($username, $password){
+		
+	}
 }
 

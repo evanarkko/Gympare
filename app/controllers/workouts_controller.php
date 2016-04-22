@@ -1,6 +1,6 @@
 <?php
 require 'app/models/workout.php';
-class WorkoutController extends BaseController{
+ class WorkoutController extends BaseController{
 	public static function index(){
 		$workouts = Workout::all();	
 		View::make('workout_list.html', array('workouts' => $workouts));

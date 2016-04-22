@@ -93,11 +93,11 @@
 
   <h2>Add a Workout:</h2>
 
-<form>
+<form method="post" action="{{base_path}}/workout_list">
   <p>Name:</p>
-    <input type="text" name="workoutName"/>
+    <input type="text" name="name"/>
     <p>Description:</p>
-    <textarea rows="4" cols="50"></textarea><br>
+    <textarea rows="4" cols="50" name="description"></textarea><br>
     <button>ADD WORKOUT</button>
 </form>
     
