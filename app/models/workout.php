@@ -46,9 +46,11 @@ class Workout extends BaseModel{
 	}
 
 	public function save(){
+		if(!strcmp($this->name, ""))return;
 		$query = DB::connection()->prepare('INSERT INTO Workout (Name, TrainerId, WorkoutTime, Description) VALUES (:name, 1, NOW(), :description) RETURNING id');
 		$query->execute(array('name' => $this->name, 'description' => $this->description));
-		$row = $query->fetch();
-		$this->id = $row['id'];
+		// $row = $query->fetch();
+		// $this->id = $row['id'];
+		//NÄITÄ EI KAIT TARTTE
 	}
 }

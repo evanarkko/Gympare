@@ -18,6 +18,11 @@
         background-color:rgb(102, 0, 51);
         color: rgb(0, 0, 0);
         font-size: 46px;
+        }
+
+    thead{
+      background-color: rgb(0,0,0);
+      color: rgb(255, 255, 255);
     }
 
     .workouts {
@@ -53,41 +58,55 @@
     <h1>GYM<br>PARE</h2>
     
     <div>
-      <a href="workout_list">BACK</a>
+      <a href="{{base_path}}/workout_list">BACK</a>
     </div>
       
-    <h2>[WORKOUT NAME + DATE]</h2>
+    <h2>{{name}}<br>{{date}}</h2>
+
+    <p>{{description}}</p>
+
     <table class="workouts">
     <thead>
       <tr>
         <th>Exercise</th>
-        <th>Sets/Time </th>
+        <th>Weight (kg)</th>
+        <th>Sets</th>
       </tr>
     </thead>
     <tbody>
+    {% for exercise in exercises %}
       <tr>
-        <td>Example exercise</td>
-        <td>10, 10, 10, 10</td>
+        <td>{{exercise.name}}</td>
+        <td>{{exercise.weight}}</td>
+        <td>1</td>
       </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <br>
+  <table class="workouts">
+    <thead>
       <tr>
-        <td>Nimi</td>
-        <td>Aika</td>
+        <th>Cardio</th>
+        <th>Duration (min)</th>
+        <th>Distance (m)</th>
       </tr>
+    </thead>
+    <tbody>
+    {% for cardio in cardios %}
       <tr>
-        <td>Nimi</td>
-        <td>Aika</td>
+        <td>{{cardio.name}}</td>
+        <td>{{cardio.duration}}</td>
+        <td>{{cardio.distance}}</td>
       </tr>
-      <tr>
-        <td>Nimi</td>
-        <td>Aika</td>
-      </tr>
+    {% endfor %}
     </tbody>
   </table>  
 
   <h2>Add Exercises to this Workout:</h2>
 
 <div class="addEx">
-    <form action="confirm.php" method="post">
+    <form method="post" action="{{base_path}}/exercise_list/1">
       <div>
         <h3>Add weight training exercise</h3><br/>
         Name:<br/>
@@ -96,7 +115,7 @@
         <input type="text" name="weight"/><br/><br/>
       Sets (in the form of reps per set. Eg: 7 5 6 5):<br/>
         <input type="text" name="sets"/><br/><br/>
-      <button type="exercise">ADD EXERCISE</button>
+      <button>ADD EXERCISE</button>
       </div>
     </form>
 </div>
@@ -111,7 +130,7 @@
         <input type="text" name="duration"/><br/><br/>
         Distance (optional):<br/>
         <input type="text" name="distance"/><br/><br/>
-        <button type="cardio">ADD CARDIO <ELEMENT></ELEMENT>XERCISE</button>
+        <button>ADD Cardio</button>
       </div>
     </form>
 </div>

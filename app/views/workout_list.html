@@ -77,15 +77,15 @@
     <thead>
       <tr>
         <th>Workout</th>
-        <th>Date</th>
+        <th>id</th>
       </tr>
     </thead>
 
     <tbody>
       {% for workout in workouts %}
       <tr>
-        <td><a href="{{base_path}}/exercise_list">{{workout.name}}</a></td>
-        <td>{{workout.workouttime}}</td> <!TÄMÄ EI NÄY????>
+        <td><a href="{{base_path}}/exercise_list/{{workout.id}}">{{workout.name}}</a></td>
+        <td>{{workout.id}}</td> <!TÄMÄ EI NÄY????>
       </tr>
       {% endfor %}
     </tbody>

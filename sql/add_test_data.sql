@@ -13,8 +13,9 @@ INSERT INTO Workout (Name, TrainerId, WorkoutTime) VALUES ('Chest and arms',2, '
 INSERT INTO Workout (Name, TrainerId, WorkoutTime) VALUES ('back and abs',1, NOW());
 
 -- Excercises
-INSERT INTO WeightExercise (Name, Weight) VALUES ('bench press', 100);
-INSERT INTO WeightExercise (Name, Weight) VALUES ('pushup', 0);
+INSERT INTO WeightExercise (WorkoutId, Name, Weight) VALUES (1, 'bench press', 100);
+INSERT INTO WeightExercise (WorkoutId, Name, Weight) VALUES (1, 'pushups', 0);
+INSERT INTO WeightExercise (WorkoutId, Name, Weight) VALUES (2, 'pullups', 0);
 
 --Cardios
 INSERT INTO CardioExercise (WorkoutId, Name, Distance) VALUES (1, 'run', 5000);

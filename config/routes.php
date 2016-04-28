@@ -34,6 +34,11 @@ require 'app/controllers/trainers_controller.php';
     WorkoutController::addWorkout();
   });
 
-  $routes->get('/exercise_list', function(){
-    WorkoutController::exerciseList();
+  
+  $routes->get('/exercise_list/:id', function($id){
+    WorkoutController::show($id);
   });
+  $routes->post('/exercise_list/:id', function($id){
+    WorkoutController::addExercise();
+  });
+

@@ -1,15 +1,12 @@
 <?php
 
+if (!class_exists('Trainer')) {
 class Trainer extends BaseModel{
 	public $id, $name, $trainer_name, $password, $weight, $height, $gender;
 
 	public function __construct($attributes){
 		parent::__construct($attributes);
 	}
-
-
-	
-
 
 	public static function all(){
 		$query = DB::connection()->prepare('SELECT * FROM Trainer');
@@ -30,9 +27,6 @@ class Trainer extends BaseModel{
 				'gender' => $row['gender']	
 			));
 		}
-
-
-
 		return $trainers;	
 	}
 
@@ -57,8 +51,23 @@ class Trainer extends BaseModel{
 		return null;
 	}
 
-	public static function authenticate($username, $password){
+	public function authenticate($username, $password){
+		$query = DB::connection()->prepare('SELECT * FROM Trainer WHERE trainername = :username AND password = :password LIMIT 1');
+		$query->execute(array('username' => $username, 'password' => $password));
+		$row = $query->fetch();
+		if($row){
+			return new Trainer(Array(
+					'id' => $row["id"],
+					'name' => $row['name'],
+					'trainer_name' => $row['trainername'],
+					'password' => $row['password'],
+					'weight' => $row['weight_in_kg'],
+					'height' => $row['height_in_cm'],
+					'gender' => $row['gender']
+				));
+		}
 		
+		return null;	
 	}
 }
-
+}	

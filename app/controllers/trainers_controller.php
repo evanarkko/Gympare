@@ -1,4 +1,5 @@
 <?php
+require 'app/models/trainer.php';
 class TrainerController extends BaseController{
 	public static function login(){
 		View::make('login.html');
@@ -6,11 +7,13 @@ class TrainerController extends BaseController{
 
 	public static function handleLogin(){
 		$params = $_POST;
+
+        $user = Trainer::authenticate($params['username'], $params['password']);
     	
-    	if($params['username'] == $params['password']){
-    		die('kyl');
+    	if(!$user){
+    		die('fak ju');
     	}else{
-    		die('ei');
+    		Redirect::to('/main_view', array('name' => $user->name));
     	}
     }
 }
