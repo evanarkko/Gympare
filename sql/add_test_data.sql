@@ -7,6 +7,7 @@ INSERT INTO Trainer (Name, Trainername, Password, Height_in_cm, Weight_in_kg, Ge
 -- Friendships
 INSERT INTO Friendship (Trainer1_Id, Trainer2_Id, Status, Action_trainerId) VALUES (1, 2, 1, 1);
 INSERT INTO Friendship (Trainer1_Id, Trainer2_Id, Status, Action_trainerId) VALUES (1, 3, 0, 1);
+INSERT INTO Friendship (Trainer1_Id, Trainer2_Id, Status, Action_trainerId) VALUES (2, 3, 0, 1);
 
 -- Workouts
 INSERT INTO Workout (Name, TrainerId, WorkoutTime) VALUES ('Chest and arms',2, '2015-10-21');
