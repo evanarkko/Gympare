@@ -8,3 +8,7 @@ Yleisiä linkkejä:
 ## Työn aihe HUOM: Vaihdoin aiheeni kivempaan ekan viikon jälkeen
 
 Gympare sovellus on tarkoitettu henkilökohtaisen kuntoharjoittelun seuraamiseen.
+
+OHJAAJALLE:
+Käyttäjätunnus: Vierailija
+Salasana: Vierailija
