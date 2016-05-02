@@ -59,7 +59,7 @@
 	    font-size: 25px;
 	}
 
-	a{	
+	.workoutlist{	
 		position: relative;
 		top: 20px;
 	    border: 3px solid white;
@@ -70,6 +70,10 @@
 	    color: black;
 
 	    margin-left: 450px;
+	}
+
+	a{
+		font-size: medium;
 	}
 
 
@@ -84,16 +88,16 @@
 
 	<table class="stats">
 	  <tr>
-	    <td class="stats">TOTAL AMOUNT OF PUSHUPS xxx </td>
-	    <td class="stats">TOTAL AMOUNT OF PULLUPS: xxx </td>
-	    <td class="stats"> TOTAL DISTANCE RUN: xxx </td>
-	    <td class="stats">TOTAL CALORIES BURNED: xxx </td>
+	    <td class="stats">TOTAL AMOUNT OF PUSHUPS: {{pushups}} </td>
+	    <td class="stats">TOTAL AMOUNT OF PULLUPS: {{pullups}} </td>
+	    <td class="stats"> TOTAL DISTANCE RUN: {{distance}} m </td>
+	    <td class="stats">CALORIES BURNED RUNNING: xxx kcal <br><a href='calorie_instructions'>how is this calculated?</a></td>
 	  </tr>
 	</table>
 
 	<br>
 	<div>
-      <a href="workout_list">MY WORKOUTS</a>
+      <a class='workoutlist' href="workout_list">MY WORKOUTS</a>
     </div>
 
 	<br>
@@ -101,15 +105,15 @@
 	<table class="info">
 	  <tr>
 	    <td class="info">Weight</td>
-	    <td class="info">xx,xx kg</td>
+	    <td class="info">{{weight}} kg</td>
 	  </tr>
 	  <tr>
 	    <td class="info">Height</td>
-	    <td class="info">xxx,xx cm</td>
+	    <td class="info">{{height}} cm</td>
 	  </tr>
 	  <tr>
 	    <td class="info">Gender</td>
-	    <td class="info">female/male</td>
+	    <td class="info">{{gender}}</td>
 	  </tr>
 	</table></br>
 	</div>

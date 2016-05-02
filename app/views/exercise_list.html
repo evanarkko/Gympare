@@ -51,6 +51,10 @@
       font-weight:bold;
     }
 
+    p{
+      font-size: x-large;
+    }
+
     </style>
 
     <body>
@@ -69,7 +73,7 @@
     <thead>
       <tr>
         <th>Exercise</th>
-        <th>Weight (kg)</th>
+        <th>Weight</th>
         <th>Sets</th>
       </tr>
     </thead>
@@ -77,8 +81,12 @@
     {% for exercise in exercises %}
       <tr>
         <td>{{exercise.name}}</td>
-        <td>{{exercise.weight}}</td>
-        <td>1</td>
+        <td>{{exercise.weight}} kg</td>
+        <td>{{exercise.sets}}</td>
+        <from method="post" action="{{base_path}}/delete_exercise/{{exercise.id}}">
+          <input type="hidden" name="id" value="{{exercise.id}}">
+          <td><button type="submit">DELETE</button></td>
+        </from>
       </tr>
     {% endfor %}
     </tbody>
@@ -88,22 +96,22 @@
     <thead>
       <tr>
         <th>Cardio</th>
-        <th>Duration (min)</th>
-        <th>Distance (m)</th>
+        <th>Duration</th>
+        <th>Distance</th>
       </tr>
     </thead>
     <tbody>
     {% for cardio in cardios %}
       <tr>
         <td>{{cardio.name}}</td>
-        <td>{{cardio.duration}}</td>
-        <td>{{cardio.distance}}</td>
+        <td>{{cardio.duration}} min</td>
+        <td>{{cardio.distance}} m</td>
       </tr>
     {% endfor %}
     </tbody>
   </table>  
 
-  <h2>Add Exercises to this Workout:</h2>
+  <h2>Add Exercises to this Workout:<br>(Total: {{total}})</h2>
 
 <div class="addEx">
     <form method="post" action="{{base_path}}/exercise_list">
@@ -138,6 +146,5 @@
 </div>
 
   <br/>
-  <p>Total exercises in this workout: x</p>
 
     </body>

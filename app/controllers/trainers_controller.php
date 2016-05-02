@@ -43,9 +43,14 @@ class TrainerController extends BaseController{
     }
 
     public static function mainView(){
-      $id = $_SESSION['user'];
-      $trainer = Trainer::find($id);
-      View::make('main_view.html', array('name' => $trainer->name));
+        $id = $_SESSION['user'];
+        $trainer = Trainer::find($id);
+        $punnerrukset = StatsController::returnPushups($id);
+        $leuat = StatsController::returnPullups($id);
+        $juoksua = StatsController::returnDistanceRun($id);
+
+        View::make('main_view.html', array('name' => $trainer->name, 'weight' => $trainer->weight, 'height' => $trainer->height, 'gender' => $trainer->gender, 'pushups' => $punnerrukset,
+         'pullups' => $leuat, 'distance' => $juoksua));
     }
 }
 // "weight"

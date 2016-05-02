@@ -1,6 +1,6 @@
 <?php
 
-
+if (!class_exists('Workout')) {
 class Workout extends BaseModel{
 	public $id, $name, $trainer_id, $workout_time, $description;
 
@@ -74,4 +74,5 @@ class Workout extends BaseModel{
 		// $this->id = $row['id'];
 		//NÄITÄ EHK TARTTEE MYÖH
 	}
+}
 }

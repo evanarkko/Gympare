@@ -1,8 +1,8 @@
 <?php
 
-
+if (!class_exists('Exercise')) {
 class Exercise extends BaseModel{
-	public $id, $workout_id, $name, $weight;
+	public $id, $workout_id, $name, $weight, $sets;
 
 	public function __construct($attributes){
 		parent::__construct($attributes);
@@ -20,7 +20,8 @@ class Exercise extends BaseModel{
 				'id' => $row['id'],
 				'workout_id' => $row['workoutid'],
 				'name' => $row['name'],
-				'weight' => $row['weight']
+				'weight' => $row['weight'],
+				'sets' => $row['sets']
 				));
 		}
 		return $exercises;
@@ -28,14 +29,16 @@ class Exercise extends BaseModel{
 
 	public function save(){
 		if(!strcmp($this->name, ""))return;
-		$query = DB::connection()->prepare('INSERT INTO weightExercise (WorkoutId, Name, Weight) VALUES (:workoutid, :name, :weight) RETURNING id');
-		$query->execute(array('name' => $this->name, 'workoutid' => $this->workout_id, 'weight' => $this->weight));
-		// $row = $query->fetch();
-		// $this->id = $row['id'];
+		$query = DB::connection()->prepare('INSERT INTO weightExercise (WorkoutId, Name, Weight, Sets) VALUES (:workoutid, :name, :weight, :sets) RETURNING id');
+		$query->execute(array('name' => $this->name, 'workoutid' => $this->workout_id, 'weight' => $this->weight, 'sets' => $this->sets));
+		$row = $query->fetch();
+		$this->id = $row['id'];
 		//NÄITÄ EI KAIT TARTTE
 	}
 }
+}
 
+if (!class_exists('Trainer')) {
 class Cardio extends BaseModel{
 	 public $id, $workout_id, $name, $duration, $distance;
 
@@ -71,4 +74,10 @@ class Cardio extends BaseModel{
 		// $this->id = $row['id'];
 		//NÄITÄ EI KAIT TARTTE
 	}
+
+	public function destroy($id){
+		$query = DB::connection()->prepare('DELETE FROM WeightExercise WHERE id = :id');
+		$query->execute(array('id' => $id));
+	}
+}
 }
