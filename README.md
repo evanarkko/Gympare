@@ -10,5 +10,5 @@ Yleisiä linkkejä:
 Gympare sovellus on tarkoitettu henkilökohtaisen kuntoharjoittelun seuraamiseen.
 
 OHJAAJALLE:
-Käyttäjätunnus: Vierailija
-Salasana: Vierailija
+Käyttäjätunnus: Vierailija,
+Salasana: salasana
