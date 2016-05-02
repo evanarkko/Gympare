@@ -27,6 +27,27 @@ class Workout extends BaseModel{
 		return $workouts;
 	}
 
+	public static function findCurrentUsersWorkouts(){
+		$id = $_SESSION['user'];
+
+		$query = DB::connection()->prepare('SELECT * FROM Workout WHERE trainerid = :id');
+		$query->execute(array('id' => $id));
+
+		$rows = $query->fetchAll();
+		$workouts = array();
+
+		foreach($rows as $row){
+			$workouts[] = new Workout(array(
+				'id' => $row['id'],
+				'name' => $row['name'],
+				'trainer_id' => $id,
+				'workout_time' => $row['workouttime'],
+				'description' => $row['description']
+			));
+		}
+		return $workouts;
+	}
+
 	public static function find($id){
 		$query = DB::connection()->prepare('SELECT * FROM Workout WHERE id = :id LIMIT 1');
 		$query->execute(array('id' => $id));
@@ -47,10 +68,10 @@ class Workout extends BaseModel{
 
 	public function save(){
 		if(!strcmp($this->name, ""))return;
-		$query = DB::connection()->prepare('INSERT INTO Workout (Name, TrainerId, WorkoutTime, Description) VALUES (:name, 1, NOW(), :description) RETURNING id');
-		$query->execute(array('name' => $this->name, 'description' => $this->description));
+		$query = DB::connection()->prepare('INSERT INTO Workout (Name, TrainerId, WorkoutTime, Description) VALUES (:name, :trainerid, NOW(), :description) RETURNING id');
+		$query->execute(array('name' => $this->name, 'trainerid' => $this->trainer_id, 'description' => $this->description));
 		// $row = $query->fetch();
 		// $this->id = $row['id'];
-		//NÄITÄ EI KAIT TARTTE
+		//NÄITÄ EHK TARTTEE MYÖH
 	}
 }

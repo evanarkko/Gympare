@@ -106,8 +106,9 @@
   <h2>Add Exercises to this Workout:</h2>
 
 <div class="addEx">
-    <form method="post" action="{{base_path}}/exercise_list/1">
+    <form method="post" action="{{base_path}}/exercise_list">
       <div>
+        <input type='hidden' name='workoutid' value='{{thisid}}'>
         <h3>Add weight training exercise</h3><br/>
         Name:<br/>
           <input type="text" name="name"/><br/><br/>
@@ -121,8 +122,9 @@
 </div>
 
 <div class="addCar">
-    <form action="cancel.php" method="post">
+    <form method="post" action="{{base_path}}/cardio_list">
       <div>
+        <input type='hidden' name='workoutid' value='{{thisid}}'>
         <h3>Add cardio/static exercise</h3><br/>
         Name:<br/>
           <input type="text" name="name"/><br/><br/>
@@ -130,7 +132,7 @@
         <input type="text" name="duration"/><br/><br/>
         Distance (optional):<br/>
         <input type="text" name="distance"/><br/><br/>
-        <button>ADD Cardio</button>
+        <button>ADD CARDIO</button>
       </div>
     </form>
 </div>

@@ -61,6 +61,14 @@ class Cardio extends BaseModel{
 	 	}
 
 	 	return $cardios;
+	}
 
-	 }
+	public function save(){
+		if(!strcmp($this->name, ""))return;
+		$query = DB::connection()->prepare('INSERT INTO CardioExercise (WorkoutId, Name, Duration, Distance) VALUES (:workoutid, :name, :dur, :dist) RETURNING id');
+		$query->execute(array('name' => $this->name, 'workoutid' => $this->workout_id, 'dur' => $this->duration, 'dist' => $this->distance));
+		// $row = $query->fetch();
+		// $this->id = $row['id'];
+		//NÄITÄ EI KAIT TARTTE
+	}
 }

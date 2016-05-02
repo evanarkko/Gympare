@@ -11,13 +11,12 @@ require 'app/controllers/trainers_controller.php';
   });
 
 
-  $routes->get('/signup', function() {
-    HelloWorldController::signup();
+  $routes->post('/signup', function() {
+    TrainerController::signup();
   });
 
   $routes->get('/main_view', function() {
-    HelloWorldController::mainView();
-
+    TrainerController::mainView();
   });
 
 
@@ -38,7 +37,10 @@ require 'app/controllers/trainers_controller.php';
   $routes->get('/exercise_list/:id', function($id){
     WorkoutController::show($id);
   });
-  $routes->post('/exercise_list/:id', function($id){
+  $routes->post('/exercise_list', function(){
     WorkoutController::addExercise();
+  });
+  $routes->post('/cardio_list', function(){
+    WorkoutController::addCardio();
   });
 

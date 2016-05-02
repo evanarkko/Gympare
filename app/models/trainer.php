@@ -69,5 +69,14 @@ class Trainer extends BaseModel{
 		
 		return null;	
 	}
+
+	public function save(){
+		$query = DB::connection()->prepare('INSERT INTO Trainer (Name, Trainername, Password, Weight_in_kg, Height_in_cm, Gender)
+											 VALUES (:name, :username, :password, :weight, :height, :gender) RETURNING id');
+		$query->execute(array('name' => $this->name, 'username' => $this->trainer_name, 'password' => $this->password,
+		 					'weight' => $this->weight, 'height' => $this->height, 'gender' => $this->gender));
+		$row = $query->fetch();
+		$this->id = $row['id'];
+	}
 }
 }	
