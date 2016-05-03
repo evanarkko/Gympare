@@ -4,6 +4,10 @@ require 'app/controllers/trainers_controller.php';
 require 'app/controllers/exercise_controller.php';
 require 'app/controllers/statistics_controller.php';
 
+  function check_logged_in(){
+    BaseController::check_logged_in();
+  }
+
   $routes->get('/', function() {
     TrainerController::login();
   });
@@ -17,8 +21,11 @@ require 'app/controllers/statistics_controller.php';
     TrainerController::signup();
   });
 
-  $routes->get('/main_view', function() {
+  $routes->get('/main_view', 'check_logged_in', function() {
     TrainerController::mainView();
+  });
+  $routes->post('/logout', function(){
+    BaseController::logout();
   });
 
   $routes->get('/calorie_instructions', function(){
@@ -32,7 +39,6 @@ require 'app/controllers/statistics_controller.php';
 
   $routes->get('/workout_list', function(){
     WorkoutController::index();
-
   });
   $routes->post('/workout_list', function(){
     WorkoutController::addWorkout();
@@ -53,3 +59,7 @@ require 'app/controllers/statistics_controller.php';
     ExerciseController::destroyExercise();
   });
 
+
+$routes->get('/friend_search', function(){
+    View::make('friend_search.html');
+  });

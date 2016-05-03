@@ -3,7 +3,7 @@ require 'app/models/trainer.php';
 require 'app/controllers/friends_controller.php';
 class TrainerController extends BaseController{
 	public static function login(){
-		View::make('login.html');
+		View::make('login.html', array('message' => 'Tervetuloa Gympareen!'));
 	}
 
 	public static function handleLogin(){
@@ -12,7 +12,7 @@ class TrainerController extends BaseController{
         $user = Trainer::authenticate($params['username'], $params['password']);
     	
     	if(!$user){
-    		die('fak ju'); //KORJAA
+    		View::make('login.html', array('message' => 'Väärä nimi tai salasana!'));
     	}else{
             $_SESSION['user'] = $user->id;
     		Redirect::to('/main_view', array('name' => $user->name));
@@ -49,10 +49,17 @@ class TrainerController extends BaseController{
         $punnerrukset = StatsController::returnPushups($id);
         $leuat = StatsController::returnPullups($id);
         $juoksua = StatsController::returnDistanceRun($id);
-        FriendController::returnFriends($id);
+
+        $friendids = FriendController::returnFriends($id);
+        $friends = array();
+        foreach ($friendids as $friendid){
+            $friends[] = Trainer::find($friendid);
+        }
+
+
 
         View::make('main_view.html', array('name' => $trainer->name, 'weight' => $trainer->weight, 'height' => $trainer->height, 'gender' => $trainer->gender, 'pushups' => $punnerrukset,
-         'pullups' => $leuat, 'distance' => $juoksua));
+         'pullups' => $leuat, 'distance' => $juoksua, 'friends' => $friends));
     }
 }
 // "weight"

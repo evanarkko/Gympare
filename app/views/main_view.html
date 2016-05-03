@@ -8,9 +8,7 @@
     <style>
 
     #friendlist{
-
-
-		position: relative;
+    	position: relative;
 		margin-left: 75%;
 		bottom: 25%;
     }
@@ -69,11 +67,22 @@
 	    font-size: 30px;
 	    color: black;
 
-	    margin-left: 450px;
+	    margin-left: 35%;
 	}
 
 	a{
 		font-size: medium;
+	}
+
+	#friend{
+		font-size: x-large;
+		color: white;
+	}
+	#searchlink{
+		font-size: xx-large;
+		position: relative;
+		margin-left: 32%;
+		top: 50px;
 	}
 
 
@@ -84,6 +93,9 @@
     <div>
 		<h1>GYM<br>PARE</h1>
 		<p1>Hello {{name}}!</p1>
+		<form method='post' action='{{base_path}}/logout'>
+			<button type='submit'>logout</button>
+		</form>
 	</div>
 
 	<table class="stats">
@@ -99,6 +111,7 @@
 	<div>
       <a class='workoutlist' href="workout_list">MY WORKOUTS</a>
     </div>
+     	<a id='searchlink' href='friend_search'>SEARCH FOR FRIENDS</a>
 
 	<br>
 	<div>
@@ -120,22 +133,9 @@
 
 	<h2 id="friendlist">Friends: </h2>
     <ul id="friendlist">
-    	<li>friend 1</li>
-    	<li>friend 2</li>
-    	<li>friend 3</li>
-    	<li>friend 4</li>
-    	<li>friend 5</li>
-    	<li>friend 6</li>
-    	<li>friend 7</li>
-    	<li>friend 8</li>
-    	<li>friend 9</li>
-    	<li>friend 10</li>
-    	<li>friend 12</li>
-    	<li>friend 13</li>
-    	<li>friend 14</li>
-    	<li>friend 15</li>
-    	<li>friend 16</li>
-    	<li>friend 17</li>
+    {% for friend in friends %}
+    	<li><a id="friend" href="">{{friend.name}}</a></li>
+    {% endfor %}
     </ul>
 
      </body>
