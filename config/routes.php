@@ -54,9 +54,11 @@ require 'app/controllers/statistics_controller.php';
   $routes->post('/cardio_list', function(){
     ExerciseController::addCardio();
   });
-  $routes->post('/delete_exercise/:id', function(){
-    die('moi');
+  $routes->post('/delete_exercise', function(){
     ExerciseController::destroyExercise();
+  });
+  $routes->post('/delete_cardio', function(){
+    ExerciseController::destroyCardio();
   });
 
 

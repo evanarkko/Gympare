@@ -32,6 +32,7 @@
     p{
       font-size: 25px;
       font-weight: bold;
+      color: white;
   }
 
     .workouts {
@@ -77,7 +78,7 @@
     <thead>
       <tr>
         <th>Workout</th>
-        <th>id</th>
+        <th>date</th>
       </tr>
     </thead>
 
@@ -85,7 +86,7 @@
       {% for workout in workouts %}
       <tr>
         <td><a href="{{base_path}}/exercise_list/{{workout.id}}">{{workout.name}}</a></td>
-        <td>{{workout.id}}</td>
+        <td>{{workout.workout_time}}</td>
       </tr>
       {% endfor %}
     </tbody>

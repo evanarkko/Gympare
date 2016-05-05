@@ -35,6 +35,14 @@ class Exercise extends BaseModel{
 		$this->id = $row['id'];
 		//NÄITÄ EI KAIT TARTTE
 	}
+
+	public function destroy(){
+		$query1 = DB::connection()->prepare('DELETE FROM ExerciseSet WHERE ExerciseId = :id');
+		$query1->execute(array('id' => $this->id));
+
+		$query = DB::connection()->prepare('DELETE FROM WeightExercise WHERE id = :id');
+		$query->execute(array('id' => $this->id));
+	}
 }
 }
 
@@ -75,9 +83,9 @@ class Cardio extends BaseModel{
 		//NÄITÄ EI KAIT TARTTE
 	}
 
-	public function destroy($id){
-		$query = DB::connection()->prepare('DELETE FROM WeightExercise WHERE id = :id');
-		$query->execute(array('id' => $id));
+	public function destroy(){
+		$query = DB::connection()->prepare('DELETE FROM CardioExercise WHERE id = :id');
+		$query->execute(array('id' => $this->id));
 	}
 }
 }

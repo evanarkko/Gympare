@@ -63,5 +63,10 @@ require 'app/models/exercise.php';
     	$exercise = new Exercise(array('id' => $tiedot['id']));
     	$exercise->destroy(); //TÄMÄ VOI ESIM PALAUTTAA WORKOUTIDN REDIRECCTIÄ VARTEN
     }
+    public static function destroyCardio(){
+    	$tiedot = $_POST;
+    	$cardio = new Cardio(array('id' => $tiedot['id']));
+    	$cardio->destroy(); //TÄMÄ VOI ESIM PALAUTTAA WORKOUTIDN REDIRECCTIÄ VARTEN
+    }
 
 }

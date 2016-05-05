@@ -39,10 +39,10 @@ require 'app/models/exercise.php';
 
  	public static function returnDistanceRun($trainerid){
  		$query = DB::connection()->prepare('SELECT * FROM CardioExercise WHERE
- 												Name LIKE :running AND
+ 												LOWER(Name) LIKE LOWER(:run) AND
  												WorkoutId IN (SELECT Id FROM Workout WHERE
  														TrainerId = :trainerid)');
- 		$query->execute(array('trainerid' => $trainerid, 'running' => '%run%'));
+ 		$query->execute(array('trainerid' => $trainerid, 'run' => '%run%'));
 		$rows = $query->fetchAll();
 
 		$yhteensa = 0;

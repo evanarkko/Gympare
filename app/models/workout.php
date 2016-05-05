@@ -74,5 +74,13 @@ class Workout extends BaseModel{
 		// $this->id = $row['id'];
 		//NÄITÄ EHK TARTTEE MYÖH
 	}
+
+	public function destroyMUOKKAATÄMÄOIKEANLAISEKSI(){
+		$query1 = DB::connection()->prepare('DELETE FROM ExerciseSet WHERE ExerciseId = :id');
+		$query1->execute(array('id' => $this->id));
+
+		$query = DB::connection()->prepare('DELETE FROM WeightExercise WHERE id = :id');
+		$query->execute(array('id' => $this->id));
+	}
 }
 }

@@ -4,7 +4,7 @@ require 'app/models/exercise.php';
  class WorkoutController extends BaseController{
 
 	public static function index(){
-		$workouts = Workout::findCurrentUsersWorkouts();	
+		$workouts = Workout::findCurrentUsersWorkouts();
 		View::make('workout_list.html', array('workouts' => $workouts));
 	}
 
@@ -21,5 +21,10 @@ require 'app/models/exercise.php';
 		$workout->save();
 		Redirect::to('/workout_list', array('message' => 'Workout on lisätty kirjastoosi!'));
 	}
+	public static function destroyWorkout(){
+    	$tiedot = $_POST;
+    	$workout = new Workout(array('id' => $tiedot['id']));
+    	$workout->destroy();
+    }
 
 }

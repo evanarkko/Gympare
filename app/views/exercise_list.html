@@ -52,6 +52,11 @@
     }
 
     p{
+      font-size: large;
+      color: white;
+    }
+
+    h3{
       font-size: x-large;
     }
 
@@ -83,10 +88,10 @@
         <td>{{exercise.name}}</td>
         <td>{{exercise.weight}} kg</td>
         <td>{{exercise.sets}}</td>
-        <from method="post" action="{{base_path}}/delete_exercise/{{exercise.id}}">
+        <form method="post" action="{{base_path}}/delete_exercise">
           <input type="hidden" name="id" value="{{exercise.id}}">
           <td><button type="submit">DELETE</button></td>
-        </from>
+        </form>
       </tr>
     {% endfor %}
     </tbody>
@@ -106,6 +111,10 @@
         <td>{{cardio.name}}</td>
         <td>{{cardio.duration}} min</td>
         <td>{{cardio.distance}} m</td>
+        <form method="post" action="{{base_path}}/delete_cardio">
+          <input type="hidden" name="id" value="{{cardio.id}}">
+          <td><button type="submit">DELETE</button></td>
+        </form>
       </tr>
     {% endfor %}
     </tbody>
@@ -118,11 +127,11 @@
       <div>
         <input type='hidden' name='workoutid' value='{{thisid}}'>
         <h3>Add weight training exercise</h3><br/>
-        Name:<br/>
+        <p>Name:</p>
           <input type="text" name="name"/><br/><br/>
-        Weight (kg):<br/>
+        <p>Weight (kg):</p>
         <input type="text" name="weight"/><br/><br/>
-      Sets (in the form of reps per set. Eg: 7 5 6 5):<br/>
+      <p>Sets (in the form of reps per set. Eg: 7 5 6 5):</p>
         <input type="text" name="sets"/><br/><br/>
       <button>ADD EXERCISE</button>
       </div>
@@ -134,11 +143,11 @@
       <div>
         <input type='hidden' name='workoutid' value='{{thisid}}'>
         <h3>Add cardio/static exercise</h3><br/>
-        Name:<br/>
+        <p>Name:</p>
           <input type="text" name="name"/><br/><br/>
-        Duration (min):<br/>
+        <p>Duration (min):</p>
         <input type="text" name="duration"/><br/><br/>
-        Distance (optional):<br/>
+        <p>Distance (m):</p>
         <input type="text" name="distance"/><br/><br/>
         <button>ADD CARDIO</button>
       </div>
