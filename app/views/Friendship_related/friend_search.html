@@ -1,0 +1,66 @@
+<!DOCTYPE>
+
+	<head>
+        <title>friendsearch</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <style>
+    	body{
+    		background-color: grey;
+    	}
+        td, th{
+            border: 3px solid rgb(102, 0, 51);
+            font-weight: bold;
+            font-size: 25px;
+        }
+        thead{
+            background-color: rgb(0,0,0);
+            color: rgb(255, 255, 255);
+        }
+
+        a{
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+
+    <body>
+    <div>
+      <a href="{{base_path}}/main_view">BACK</a>
+    </div>
+
+    <h1>Search for friends by name</h1>
+
+    <form method="POST" action="{{base_path}}/friend_search">
+    <table>
+        <td><input type="text" name="searchterm"/></td>
+        <td><button type="submit">Search</button></td>
+    </table>
+    </form>
+
+    <p>{{message}}</p>
+
+    <table class="friends">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Trainername</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for friend in friends %}
+      <tr>
+        <td>{{friend.name}}</td>
+        <td>{{friend.trainer_name}}</td>
+        <td>{{friend.gender}}</td>
+        <form method="post" action="{{base_path}}/friend_add/{{friend.id}}">
+          <td><button type="submit">ADD FRIEND</button></td>
+        </form>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+    </body>

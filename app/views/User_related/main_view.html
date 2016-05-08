@@ -1,0 +1,142 @@
+<!DOCTYPE>
+
+    <head>
+        <title>Gym Pare</title>
+        <meta charset="utf-8" />
+    </head>
+    
+    <style>
+
+    #friendlist{
+    	position: relative;
+		margin-left: 75%;
+		bottom: 25%;
+    }
+
+    ul{
+    	height:200px;
+    	width:18%;
+
+    	font-size: 25px;
+    	background-color: rgb(102, 0, 51);
+
+    	overflow:hidden;
+    	overflow-y:scroll;
+    }
+
+	
+
+    body {
+   	    background-color: grey;
+    }
+        
+	h1{
+    	border: 3px solid white;
+        margin-top: 1px;
+	    background-color: rgb(102, 0, 51);
+        color: black;
+    	font-size: 56px;
+    }
+
+    p1{
+            color: black;
+    	    font-size: 25px;
+    	    font-weight: bold;
+        }
+
+
+	.info{
+	    border: 3px solid rgb(102, 0, 51);
+	    font-size: 25px;
+	    font-weight: bold;
+	}
+
+	.stats{
+	    border: 3px solid rgb(102, 0, 51);
+	    font-weight: bold;
+	    font-size: 25px;
+	}
+
+	.workoutlist{	
+		position: relative;
+		top: 20px;
+	    border: 3px solid white;
+		border-style: outset;
+	    float: center;
+	    background-color: white;
+	    font-size: 30px;
+	    color: black;
+
+	    margin-left: 35%;
+	}
+
+	a{
+		font-size: medium;
+	}
+
+	#friend{
+		font-size: x-large;
+		color: white;
+	}
+	#searchlink{
+		font-size: xx-large;
+		position: relative;
+		margin-left: 32%;
+		top: 50px;
+	}
+
+
+       
+    </style>
+
+    <body>
+    <div>
+		<h1>GYM<br>PARE</h1>
+		<p1>Hello {{name}}!</p1>
+		<form method='post' action='{{base_path}}/logout'>
+			<button type='submit'>logout</button>
+		</form>
+	</div>
+
+	<table class="stats">
+	  <tr>
+	    <td class="stats">TOTAL AMOUNT OF PUSHUPS: {{pushups}} </td>
+	    <td class="stats">TOTAL AMOUNT OF PULLUPS: {{pullups}} </td>
+	    <td class="stats"> TOTAL DISTANCE RUN: {{distance}} m </td>
+	    <td class="stats">CALORIES BURNED RUNNING: xxx kcal <br><a href='calorie_instructions'>how is this calculated?</a></td>
+	  </tr>
+	</table>
+
+	<br>
+	<div>
+      <a class='workoutlist' href="workout_list">MY WORKOUTS</a>
+    </div>
+     	<a id='searchlink' href='friend_search'>SEARCH FOR FRIENDS</a>
+
+	<br>
+	<div>
+	<table class="info">
+	  <tr>
+	    <td class="info">Weight</td>
+	    <td class="info">{{weight}} kg</td>
+	  </tr>
+	  <tr>
+	    <td class="info">Height</td>
+	    <td class="info">{{height}} cm</td>
+	  </tr>
+	  <tr>
+	    <td class="info">Gender</td>
+	    <td class="info">{{gender}}</td>
+	  </tr>
+	</table></br>
+	</div>
+
+	<h2 id="friendlist">Friends: </h2>
+    <ul id="friendlist">
+    {% for friend in friends %}
+    	<li><a id="friend" href="{{base_path}}/friend_view/{{friend.id}}">{{friend.name}}</a></li>
+    {% endfor %}
+    </ul>
+
+     </body>
+</html>

@@ -8,8 +8,14 @@ require 'app/models/exercise.php';
 		$tiedot = $_POST;
 		$workout_id = $tiedot['workoutid'];
 
+		if($tiedot['weight']){
+			$weight = $tiedot['weight'];
+		}else{
+			$weight = 0;
+		}
+
 		$exercise = new Exercise(array(
-			'weight' => $tiedot['weight'],
+			'weight' => $weight,
 			'name' => $tiedot['name'],
 			'workout_id' => $workout_id,
 			'sets' => $tiedot['sets']
@@ -37,9 +43,20 @@ require 'app/models/exercise.php';
 		$tiedot = $_POST;
 		$workout_id = $tiedot['workoutid'];
 
+		if($tiedot['distance']){
+			$distance = $tiedot['distance'];
+		}else{
+			$distance = 0;
+		}
+		if($tiedot['duration']){
+			$duration = $tiedot['duration'];
+		}else{
+			$duration = 0;
+		}
+
 		$cardio = new Cardio(array(
-			'distance' => $tiedot['distance'],
-			'duration' => $tiedot['duration'],
+			'distance' => $distance,
+			'duration' => $duration,
 			'name' => $tiedot['name'],
 			'workout_id' => $workout_id
 		));

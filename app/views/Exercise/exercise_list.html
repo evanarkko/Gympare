@@ -1,0 +1,164 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>exercises</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <style>
+
+      body {
+          background-color:grey;
+        }
+
+        h1{
+        border: 10px solid black;
+        margin-top: 1px;
+        background-color:rgb(102, 0, 51);
+        color: rgb(0, 0, 0);
+        font-size: 46px;
+        }
+
+    thead{
+      background-color: rgb(0,0,0);
+      color: rgb(255, 255, 255);
+    }
+
+    .workouts {
+    border-collapse: collapse;
+    width: 90%;
+}
+
+    .workouts, td, th{
+      border: 3px solid rgb(102, 0, 51);
+      font-weight: bold;
+      font-size: 25px;
+    }
+
+    .addEx{
+    background-color: rgb(102, 0, 51);
+      float: left;
+      width:50%
+  }
+  .addCar{
+    background-color: rgb(102, 0, 51);
+      float: right;
+      width: 50%;
+  }
+
+    div{
+      font-weight:bold;
+    }
+
+    p{
+      font-size: large;
+      color: white;
+    }
+
+    h3{
+      font-size: x-large;
+    }
+
+    a{
+        font-weight: bold;
+        color: red;
+      }
+
+    </style>
+
+    <body>
+
+    <h1>GYM<br>PARE</h2>
+    
+    <div>
+      <a href="{{base_path}}/workout_list">BACK</a>
+    </div>
+      
+    <h2>{{name}}<br>{{date}}</h2>
+
+    <p>{{description}}</p>
+
+    <table class="workouts">
+    <thead>
+      <tr>
+        <th>Exercise</th>
+        <th>Weight</th>
+        <th>Sets</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for exercise in exercises %}
+      <tr>
+        <td>{{exercise.name}}</td>
+        <td>{{exercise.weight}} kg</td>
+        <td>{{exercise.sets}}</td>
+        <form method="post" action="{{base_path}}/delete_exercise">
+          <input type="hidden" name="id" value="{{exercise.id}}">
+          <td><button type="submit">DELETE</button></td>
+        </form>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <br>
+  <table class="workouts">
+    <thead>
+      <tr>
+        <th>Cardio</th>
+        <th>Duration</th>
+        <th>Distance</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for cardio in cardios %}
+      <tr>
+        <td>{{cardio.name}}</td>
+        <td>{{cardio.duration}} min</td>
+        <td>{{cardio.distance}} m</td>
+        <form method="post" action="{{base_path}}/delete_cardio">
+          <input type="hidden" name="id" value="{{cardio.id}}">
+          <td><button type="submit">DELETE</button></td>
+        </form>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>  
+
+  <h2>Add Exercises to this Workout:<br>(Total: {{total}})</h2>
+
+<div class="addEx">
+    <form method="post" action="{{base_path}}/exercise_list">
+      <div>
+        <input type='hidden' name='workoutid' value='{{thisid}}'>
+        <h3>Add weight training exercise<br>(only name required)</h3><br/>
+        <p>Name:</p>
+          <input type="text" name="name"/><br/><br/>
+        <p>Weight (kg):</p>
+        <input type="text" name="weight"/><br/><br/>
+      <p>Sets (in the form of reps per set. Eg: 7 5 6 5):</p>
+        <input type="text" name="sets"/><br/><br/>
+      <button>ADD EXERCISE</button>
+      </div>
+    </form>
+</div>
+
+<div class="addCar">
+    <form method="post" action="{{base_path}}/cardio_list">
+      <div>
+        <input type='hidden' name='workoutid' value='{{thisid}}'>
+        <h3>Add cardio/static exercise</h3><br/>
+        <p>Name:</p>
+          <input type="text" name="name"/><br/><br/>
+        <p>Duration (min):</p>
+        <input type="text" name="duration"/><br/><br/>
+        <p>Distance (m):</p>
+        <input type="text" name="distance"/><br/><br/>
+        <button>ADD CARDIO</button>
+      </div>
+    </form>
+</div>
+
+  <br/>
+
+    </body>

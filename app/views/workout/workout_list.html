@@ -32,6 +32,7 @@
     p{
       font-size: 25px;
       font-weight: bold;
+      color: white;
   }
 
     .workouts {
@@ -45,34 +46,57 @@
       font-size: 25px;
     }
 
-    form{
+    thead{
+      color: white;
+      background-color: black;
+    }
+    tbody{
+      background-color: white;
+    }
+
+    .addworkout{
       background-color: rgb(102, 0, 51);
     }
+
+    .backbutton{
+        font-weight: bold;
+        color: red;
+      }
+
+
 
 
 
     </style>
 
     <body>  
+    <h1>GYM<br>PARE</h1>
+
     <div>
-      <a href="main_view">BACK</a>
+      <a class='backbutton' href="{{base_path}}/main_view">BACK</a>
     </div>
     
+
 
     <h2>My Workouts:</h2>
       <table class="workouts">
     <thead>
       <tr>
         <th>Workout</th>
-        <th>Date</th>
+        <th>date</th>
       </tr>
     </thead>
 
     <tbody>
       {% for workout in workouts %}
       <tr>
-        <td><a href="exercise_list">{{workout.name}}</a></td>
-        <td>{{workout.workouttime}}</td>
+        <td><a href="{{base_path}}/exercise_list/{{workout.id}}">{{workout.name}}</a></td>
+        <td>{{workout.workout_time}}</td>
+        <td><a href="{{base_path}}/workout_edit/{{workout.id}}">edit</a>
+          <form method="POST" action="{{base_path}}/workout_delete/{{workout.id}}">
+            <button class="deletebutton" type="submit">delete</button>
+          </form>
+        </td>
       </tr>
       {% endfor %}
     </tbody>
@@ -80,13 +104,13 @@
 
   <h2>Add a Workout:</h2>
 
-<form method="post" action="{{base_path}}/workout_list">
-    <p>Name:</p>
+<form class="addworkout" method="post" action="{{base_path}}/workout_list">
+  <p>Name:</p>
     <input type="text" name="name"/>
     <p>Description:</p>
     <textarea rows="4" cols="50" name="description"></textarea><br>
-    <button type="submit">ADD WORKOUT</button>
+    <button>ADD WORKOUT</button>
 </form>
     
 
-      </body>
+    </body>

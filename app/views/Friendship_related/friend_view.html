@@ -1,0 +1,117 @@
+<!DOCTYPE>
+
+    <head>
+        <title>Gym Pare</title>
+        <meta charset="utf-8" />
+    </head>
+    
+    <style>
+
+
+	
+
+    body {
+   	    background-color: grey;
+    }
+        
+	h1{
+    	border: 3px solid white;
+        margin-top: 1px;
+	    background-color: rgb(102, 0, 51);
+        color: black;
+    	font-size: 56px;
+    }
+
+    p1{
+            color: black;
+    	    font-size: 25px;
+    	    font-weight: bold;
+        }
+
+
+	.info{
+	    border: 3px solid rgb(102, 0, 51);
+	    font-size: 25px;
+	    font-weight: bold;
+	}
+
+	.stats{
+	    border: 3px solid rgb(102, 0, 51);
+	    font-weight: bold;
+	    font-size: 25px;
+	}
+
+	.workoutlist{	
+		position: relative;
+		top: 20px;
+	    border: 3px solid white;
+		border-style: outset;
+	    float: center;
+	    background-color: white;
+	    font-size: 30px;
+	    color: black;
+
+	    margin-left: 35%;
+	}
+
+	a{
+		font-size: medium;
+	}
+
+	#friend{
+		font-size: x-large;
+		color: white;
+	}
+	#searchlink{
+		font-size: xx-large;
+		position: relative;
+		margin-left: 32%;
+		top: 50px;
+	}
+
+	a{
+            font-weight: bold;
+            color: red;
+        }
+
+
+       
+    </style>
+
+    <body>
+    <div>
+		<h1>GYM<br>PARE</h1>
+		<a href="{{base_path}}/main_view">BACK</a><br><br>
+		<p1>Display of your friend {{name}}:</p1>
+	</div>
+
+	<table class="stats">
+	  <tr>
+	    <td class="stats">TOTAL AMOUNT OF PUSHUPS: {{pushups}} </td>
+	    <td class="stats">TOTAL AMOUNT OF PULLUPS: {{pullups}} </td>
+	    <td class="stats"> TOTAL DISTANCE RUN: {{distance}} m </td>
+	    <td class="stats">CALORIES BURNED RUNNING: xxx kcal <br><a href='calorie_instructions'>how is this calculated?</a></td>
+	  </tr>
+	</table>
+
+
+	<br>
+	<div>
+	<table class="info">
+	  <tr>
+	    <td class="info">Weight</td>
+	    <td class="info">{{weight}} kg</td>
+	  </tr>
+	  <tr>
+	    <td class="info">Height</td>
+	    <td class="info">{{height}} cm</td>
+	  </tr>
+	  <tr>
+	    <td class="info">Gender</td>
+	    <td class="info">{{gender}}</td>
+	  </tr>
+	</table></br>
+	</div>
+
+     </body>
+</html>
