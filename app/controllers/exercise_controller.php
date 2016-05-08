@@ -61,12 +61,14 @@ require 'app/models/exercise.php';
     public static function destroyExercise(){
     	$tiedot = $_POST;
     	$exercise = new Exercise(array('id' => $tiedot['id']));
-    	$exercise->destroy(); //TÄMÄ VOI ESIM PALAUTTAA WORKOUTIDN REDIRECCTIÄ VARTEN
+    	$workout_id = $exercise->destroy($tiedot['id']); //TÄMÄ VOI ESIM PALAUTTAA WORKOUTIDN REDIRECCTIÄ VARTEN
+    	Redirect::to('/exercise_list/' . $workout_id);
     }
     public static function destroyCardio(){
     	$tiedot = $_POST;
     	$cardio = new Cardio(array('id' => $tiedot['id']));
-    	$cardio->destroy(); //TÄMÄ VOI ESIM PALAUTTAA WORKOUTIDN REDIRECCTIÄ VARTEN
+    	$workout_id = $cardio->destroy(); //TÄMÄ VOI ESIM PALAUTTAA WORKOUTIDN REDIRECCTIÄ VARTEN
+    	Redirect::to('/exercise_list/' . $workout_id);
     }
 
 }

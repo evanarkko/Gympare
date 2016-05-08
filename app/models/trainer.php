@@ -51,6 +51,28 @@ class Trainer extends BaseModel{
 		return null;
 	}
 
+	public static function findByName($name){
+		$query = DB::connection()->prepare('SELECT * FROM Trainer WHERE Name LIKE :name');
+		$query->execute(array('name' => '%' . $name . '%'));
+		$rows = $query->fetchAll();
+
+		$trainers = array();
+
+		
+		foreach ($rows as $row) {
+			$trainers[] = new Trainer(array(
+				'id' => $row["id"],
+				'name' => $row['name'],
+				'trainer_name' => $row['trainername'],
+				'password' => $row['password'],
+				'weight' => $row['weight_in_kg'],
+				'height' => $row['height_in_cm'],
+				'gender' => $row['gender']	
+			));
+		}
+		return $trainers;	
+	}
+
 	public function authenticate($username, $password){
 		$query = DB::connection()->prepare('SELECT * FROM Trainer WHERE trainername = :username AND password = :password LIMIT 1');
 		$query->execute(array('username' => $username, 'password' => $password));

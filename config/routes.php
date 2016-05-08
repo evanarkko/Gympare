@@ -37,15 +37,25 @@ require 'app/controllers/statistics_controller.php';
     HelloWorldController::sandbox();
   });
 
-  $routes->get('/workout_list', function(){
+  $routes->get('/workout_list', 'check_logged_in', function(){
     WorkoutController::index();
   });
   $routes->post('/workout_list', function(){
     WorkoutController::addWorkout();
   });
 
+  $routes->get('/workout_edit/:id', function($id){
+    WorkoutController::displayEdit($id);
+  });
+  $routes->post('/workout_edit/:id', function($id){
+    WorkoutController::edit($id);
+  });
+  $routes->post('/workout_delete/:id', function($id){
+    WorkoutController::destroyWorkout($id);
+  });
+
   
-  $routes->get('/exercise_list/:id', function($id){
+  $routes->get('/exercise_list/:id', 'check_logged_in', function($id){
     ExerciseController::show($id);
   });
   $routes->post('/exercise_list', function(){
@@ -65,3 +75,13 @@ require 'app/controllers/statistics_controller.php';
 $routes->get('/friend_search', function(){
     View::make('friend_search.html');
   });
+$routes->post('/friend_search', function(){
+    FriendController::searchFriends();
+});
+$routes->post('/friend_add/:id', function($id){
+    FriendController::createFriendship($id);
+});
+
+$routes->get('/friend_view/:id', function($id) {
+  TrainerController::friendView($id);
+});

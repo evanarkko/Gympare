@@ -22,8 +22,8 @@ CREATE TABLE Goal(
 CREATE TABLE Friendship(
 	Trainer1_Id INTEGER REFERENCES Trainer(Id), 
 	Trainer2_Id INTEGER REFERENCES Trainer(Id), 
-	Status INTEGER NOT NULL,
-	Action_trainerId INTEGER NOT NULL
+	Status INTEGER,
+	Action_trainerId INTEGER
 );
 
 CREATE TABLE Workout(

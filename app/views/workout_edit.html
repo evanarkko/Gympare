@@ -34,8 +34,10 @@
 
     <h1>GYM<br>PARE<h1>
 
-    <h2>Edit {{Workoutname}}:</h2>
-    <form method="post" action="{{base_path}}/workout_list">
+    <h2>Edit workout "{{workoutname}}":</h2>
+    <form method="post" action="{{base_path}}/workout_edit/{{id}}">
+    <p>New date (YYYY-MM-DD):</p>
+    <input type="text" name="date"/>
   	<p>New name:</p>
     <input type="text" name="name"/>
     <p>New description:</p>

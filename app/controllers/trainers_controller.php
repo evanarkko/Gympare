@@ -26,7 +26,7 @@ class TrainerController extends BaseController{
         $password2 = $params['password_again'];
 
         if($password!=$password2){
-            die('nou');
+            View::make('login.html', array('message' => 'Salasanasi eivät täsmää!'));
         }
 
         $trainer = new Trainer(array(
@@ -60,6 +60,17 @@ class TrainerController extends BaseController{
 
         View::make('main_view.html', array('name' => $trainer->name, 'weight' => $trainer->weight, 'height' => $trainer->height, 'gender' => $trainer->gender, 'pushups' => $punnerrukset,
          'pullups' => $leuat, 'distance' => $juoksua, 'friends' => $friends));
+    }
+    public static function friendView($id){
+        $trainer = Trainer::find($id);
+        $punnerrukset = StatsController::returnPushups($id);
+        $leuat = StatsController::returnPullups($id);
+        $juoksua = StatsController::returnDistanceRun($id);
+
+
+
+        View::make('friend_view.html', array('name' => $trainer->name, 'weight' => $trainer->weight, 'height' => $trainer->height, 'gender' => $trainer->gender, 'pushups' => $punnerrukset,
+         'pullups' => $leuat, 'distance' => $juoksua));
     }
 }
 // "weight"

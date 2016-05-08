@@ -7,22 +7,6 @@
     
     <style>
 
-    #friendlist{
-    	position: relative;
-		margin-left: 75%;
-		bottom: 25%;
-    }
-
-    ul{
-    	height:200px;
-    	width:18%;
-
-    	font-size: 25px;
-    	background-color: rgb(102, 0, 51);
-
-    	overflow:hidden;
-    	overflow-y:scroll;
-    }
 
 	
 
@@ -85,6 +69,11 @@
 		top: 50px;
 	}
 
+	a{
+            font-weight: bold;
+            color: red;
+        }
+
 
        
     </style>
@@ -92,10 +81,8 @@
     <body>
     <div>
 		<h1>GYM<br>PARE</h1>
-		<p1>Hello {{name}}!</p1>
-		<form method='post' action='{{base_path}}/logout'>
-			<button type='submit'>logout</button>
-		</form>
+		<a href="{{base_path}}/main_view">BACK</a><br><br>
+		<p1>Display of your friend {{name}}:</p1>
 	</div>
 
 	<table class="stats">
@@ -107,11 +94,6 @@
 	  </tr>
 	</table>
 
-	<br>
-	<div>
-      <a class='workoutlist' href="workout_list">MY WORKOUTS</a>
-    </div>
-     	<a id='searchlink' href='friend_search'>SEARCH FOR FRIENDS</a>
 
 	<br>
 	<div>
@@ -130,13 +112,6 @@
 	  </tr>
 	</table></br>
 	</div>
-
-	<h2 id="friendlist">Friends: </h2>
-    <ul id="friendlist">
-    {% for friend in friends %}
-    	<li><a id="friend" href="{{base_path}}/friend_view/{{friend.id}}">{{friend.name}}</a></li>
-    {% endfor %}
-    </ul>
 
      </body>
 </html>

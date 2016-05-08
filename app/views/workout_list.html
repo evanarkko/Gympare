@@ -54,9 +54,14 @@
       background-color: white;
     }
 
-    form{
+    .addworkout{
       background-color: rgb(102, 0, 51);
     }
+
+    .backbutton{
+        font-weight: bold;
+        color: red;
+      }
 
 
 
@@ -68,7 +73,7 @@
     <h1>GYM<br>PARE</h1>
 
     <div>
-      <a href="{{base_path}}/main_view">BACK</a>
+      <a class='backbutton' href="{{base_path}}/main_view">BACK</a>
     </div>
     
 
@@ -87,6 +92,11 @@
       <tr>
         <td><a href="{{base_path}}/exercise_list/{{workout.id}}">{{workout.name}}</a></td>
         <td>{{workout.workout_time}}</td>
+        <td><a href="{{base_path}}/workout_edit/{{workout.id}}">edit</a>
+          <form method="POST" action="{{base_path}}/workout_delete/{{workout.id}}">
+            <button class="deletebutton" type="submit">delete</button>
+          </form>
+        </td>
       </tr>
       {% endfor %}
     </tbody>
@@ -94,7 +104,7 @@
 
   <h2>Add a Workout:</h2>
 
-<form method="post" action="{{base_path}}/workout_list">
+<form class="addworkout" method="post" action="{{base_path}}/workout_list">
   <p>Name:</p>
     <input type="text" name="name"/>
     <p>Description:</p>
